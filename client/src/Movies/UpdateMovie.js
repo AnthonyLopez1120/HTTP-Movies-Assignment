@@ -19,7 +19,7 @@ const UpdateMovie = props => {
 
 const handleChange = e =>{
     if (e.target.name=== "stars"){
-        const stars e.target.value.split(",")
+        const stars = e.target.value.split(",")
         setMovie({...movie, [e.target.name]: e.target.value})
     }
 }
