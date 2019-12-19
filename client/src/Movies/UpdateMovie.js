@@ -11,7 +11,7 @@ const UpdateMovie = props => {
     const [movie, setMovie] = useState({...initialState})
 
     useEffect(()=>{
-        const movieToUpdate = props.movie.filter(movie =>{
+        const movieToUpdate = props.movies.filter(movie =>{
             return movie.id === props.match.params.id
         })
         movieToUpdate && setMovie(movieToUpdate)
@@ -20,7 +20,7 @@ const UpdateMovie = props => {
 const handleChange = e =>{
     if (e.target.name=== "stars"){
         const stars = e.target.value.split(",")
-        setMovie({...movie, [e.target.name]: e.target.value})
+        setMovie({...movie, [e.target.name]: stars})
     }
 }
 

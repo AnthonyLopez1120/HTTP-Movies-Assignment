@@ -43,7 +43,7 @@ export default class Movie extends React.Component {
     .delete(`http://localhost:5000/api/movies/${this.state.movie.id}`)
     .then(res=>{
       console.log(res)
-      this.props.setMovie(this.props.movies.filter(item=>
+      this.props.setMovies(this.props.movies.filter(item=>
         item.id !== this.state.movie.id
       ))
       this.props.history.push("/")
@@ -61,7 +61,7 @@ export default class Movie extends React.Component {
     return (
       <div className="save-wrapper">
         
-        <MovieCard movie={this.state.movie} editMovie={this.editMovie} />
+        <MovieCard movie={this.state.movie} editMovie={this.editMovie} deleteMovie={this.deleteMovie} />
         <div className="save-button" onClick={this.saveMovie}>
           Save
         </div>
@@ -71,6 +71,7 @@ export default class Movie extends React.Component {
         <div className="delete-btn" onClick={this.deleteMovie}>
           Delete
         </div>
+
       </div>
     );
   }

@@ -21,8 +21,8 @@ const App = () => {
       console.log("Use Effect axios call: ", res.data)
       setMovies(res.data);
     })
-    .catch(error => {
-      console.log(error.message);
+    .catch(err => {
+      console.log(err.message);
     })
   }, [])
 
@@ -30,23 +30,32 @@ const App = () => {
     <>
       <SavedList list={savedList} />
       
-      
-      <Route exact path="/" render={props=>{
-        return <MovieList {...props} movies={movies}/>
+      <Route
+       exact path="/" 
+       render={props=>{
+        return <MovieList 
+        {...props} 
+        movies={movies}/>
       }}/>
-      
-      
       
       <Route
         path="/movies/:id"
         render={props => {
-          return <Movie {...props} addToSavedList={addToSavedList} movies={movies} setMovies={setMovies} />;
+          return <Movie 
+          {...props} 
+          addToSavedList={addToSavedList} 
+          movies={movies} 
+          setMovies={setMovies} />;
         }}
       />
 
 
-      <Route path="/update-movie/:id" render={props=>{
-        return <UpdateMovie {...props} movies={movies} setMovies={setMovies}/>
+      <Route path="/update-movie/:id" 
+      render={props=>{
+        return <UpdateMovie
+         {...props}
+          movies={movies} 
+          setMovies={setMovies}/>
       }}
       />
 
